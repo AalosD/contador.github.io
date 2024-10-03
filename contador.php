@@ -15,5 +15,5 @@ $conteo++; // Incrementa el contador en 1
 file_put_contents($archivo, $conteo);
 
 // Muestra el número de visitas
-echo "Número de visitas: " . $conteo;
+echo $conteo;
 ?>
