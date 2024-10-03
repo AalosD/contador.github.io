@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página con contador de visitas</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>¡Bienvenido a nuestra página!</h1>
+        <p>Gracias por visitarnos. Este es el número total de visitas:</p>
+        
+        <!-- Aquí se mostrará el número de visitas -->
+        <div class="contador" id="contador">Cargando visitas...</div>
+    </div>
+
+    <!-- Incluimos JavaScript para cargar el contador -->
+    <script>
+        // Función para cargar el número de visitas
+        function cargarContador() {
+            fetch('contador.php')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('contador').innerHTML = data;
+                })
+                .catch(error => {
+                    console.error('Error al cargar el contador:', error);
+                });
+        }
+
+        // Llamamos a la función para cargar el contador al cargar la página
+        window.onload = cargarContador;
+    </script>
+</body>
+</html>
